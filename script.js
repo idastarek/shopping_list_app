@@ -1,6 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://shopping-list-app-54ea3-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -18,6 +18,25 @@ addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value;
     push(shoppingListInDB, inputValue);
     console.log(`${inputValue} added to database`);
-    shoppingList.innerHTML += `<li>${inputValue}</li>`
+    clearInputFieldEl();
 })
 
+onValue(shoppingListInDB, function(snapshot) {
+    let itemsArray = Object.values(snapshot.val());
+    clearShoppingList();
+    for (let i=0; i<itemsArray.length; i++) {
+        appendItemToShoppingList(itemsArray[i]);
+    }
+})
+
+function clearShoppingList() {
+    shoppingList.innerHTML = "";
+}
+
+function clearInputFieldEl() {
+    inputFieldEl.value = "";
+}
+
+function appendItemToShoppingList(itemValue) {
+    shoppingList.innerHTML += `<li>${itemValue}</li>`
+}
