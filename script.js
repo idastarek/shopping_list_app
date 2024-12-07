@@ -35,7 +35,7 @@ onValue(shoppingListInDB, function(snapshot) {
             appendItemToShoppingListEl(currentItem);
         }
     } else {
-        shoppingListEl.innerHTML = "Nothing in here... yet";
+        shoppingListEl.innerHTML = `<p>Nothing in here... yet</p>`;
     }
     
 })
