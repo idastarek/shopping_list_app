@@ -2,7 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Rubik', sans-serif;
-    background-color: #f4845f;
+    background-color:#EBEBEB;
     user-select: none;
 }
 
@@ -32,7 +32,7 @@ input {
 
 button {
     color: #FDFDFD;
-    background-color: #f49cbb;
+    background-color: #FF7092;
     border: 0;
     padding: 15px;
     border-radius: 8px;
@@ -42,7 +42,7 @@ button {
 }
 
 button:hover {
-    background-color: #ED5A86;
+    background-color: #FF5C82;
     cursor: pointer;
     transition: 0.5s;
 }
@@ -73,6 +73,7 @@ ul li:hover {
 }
 
 #shopping-list p {
-    color: #ffffff;
-    text-shadow: 1px 1px 1px black;
+    color: #432000;
+    align-items: center;
+    margin: 5px auto;
 }
